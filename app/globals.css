@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* Swiper容器扩展策略 */
+.swiper {
+  width: 100%;
+  height: 100%;
+  position: relative !important; 
+}
+/** swiper样式重写-----start */
+.swiper-slide {
+  @apply !flex justify-center items-center; 
+  width: 100% !important;
+}
+/* 整体分页容器样式 */
+.swiper-pagination {
+  height: 20px !important;
+  background: rgba(0,0,0,.2) !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px !important;
+  position: absolute !important; 
+  bottom: 5% !important;
+  left: 50% !important; 
+  transform: translateX(-50%) !important; 
+}
+
+/* 单个分页点样式 */
+.swiper-pagination-bullet {
+  background: #fff !important;
+  opacity: 0.8 !important; 
+  transition: all 0.3s ease !important;
+}
+
+/* 当前激活的分页点 */
+.swiper-pagination-bullet-active {
+  background: #ff0000 !important; 
+  border-radius: 100% !important;  
+}
+/** swiper样式重写-----end */
+.h-600{
+  height: 600px;
+}
+.h-700{
+  height: 700px;
+}
