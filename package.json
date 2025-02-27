@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
+    "@types/gsap": "^3.0.0",
     "classnames": "^2.5.1",
     "gsap": "^3.12.7",
     "next": "15.1.7",

@@ -1,6 +1,8 @@
 
 import Image from "next/image";
 import ZkCarousel from "@/components/ZkCarousel"
+import ZkServive from "@/components/ZkServive"
+import ZkSchool from "@/components/ZkSchool"
 export default function Home() {
   const navList = [
     {
@@ -32,38 +34,25 @@ export default function Home() {
   const images = [
     {
       src:'/image/swipe/swipe1.jpg',
-      alt:'申请',
-      placeholder:''
+      alt:'零中介费留学申请平台',
+      title:'零中介费留学申请平台',
+      info:'AI智能选校 · 透明化服务 · 材料模板库 · 签证攻略包',
+      button_l:'开始申请',
+      button_r:'了解更多'
     },
     {
       src:'/image/swipe/swipe2.jpg',
-      alt:'s2',
-      placeholder:''
-    },
-    
-    {
-      src:'/image/swipe/swipe1.jpg',
-      alt:'申请',
-      placeholder:''
+      alt:'开启你的留学梦想之旅',
+      title:'开启你的留学梦想之旅',
+      info:'37年留学培训经验，专业咨询服务，助你圆梦世界名校',
     },
     {
-      src:'/image/swipe/swipe2.jpg',
-      alt:'s2',
-      placeholder:''
+      src:'/image/swipe/swipe3.jpg',
+      alt:'专业的留学规划指导',
+      title:'专业的留学规划指导',
+      info:'一对一定制化服务，为你量身打造留学方案',
     },
-    
-    {
-      src:'/image/swipe/swipe1.jpg',
-      alt:'申请',
-      placeholder:''
-    },
-    {
-      src:'/image/swipe/swipe2.jpg',
-      alt:'s2',
-      placeholder:''
-    },
-    
-   
+  
   ]
   return (
     <>
@@ -100,66 +89,14 @@ export default function Home() {
           </div>
         </nav>
         <main className="w-full">
+          {/* 轮播图 */}
           <ZkCarousel images={images} />
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
-          <div>q</div>
+          {/* 我们的服务 */}
+          <ZkServive />
+          <h2 className="our-service text-3xl font-bold text-center mb-5 text-gray-800">
+          合作院校
+        </h2>
+          <ZkSchool />
         </main>
         <footer></footer>
       </div>

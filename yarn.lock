@@ -75,6 +75,11 @@
     "@eslint/core" "^0.12.0"
     levn "^0.4.1"
 
+"@gsap/react@^2.1.2":
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/@gsap/react/-/react-2.1.2.tgz#bfc055a41b402e8d1dc56839e9d077407027b0a0"
+  integrity sha512-JqliybO1837UcgH2hVOM4VO+38APk3ECNrsuSM4MuXp+rbf+/2IG2K1YJiqfTcXQHH7XlA0m3ykniFYstfq0Iw==
+
 "@humanfs/core@^0.19.1":
   version "0.19.1"
   resolved "https://registry.yarnpkg.com/@humanfs/core/-/core-0.19.1.tgz#17c55ca7d426733fe3c561906b8173c336b40a77"
@@ -369,6 +374,13 @@
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-1.0.6.tgz#628effeeae2064a1b4e79f78e81d87b7e5fc7b50"
   integrity sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw==
+
+"@types/gsap@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@types/gsap/-/gsap-3.0.0.tgz#28dc350ad89b6d19b13c8edbdf1dd74e8ee5c84f"
+  integrity sha512-BbWLi4WRHGze4C8NV7U7yRevuBFiPkPZZyGa0rryanvh/9HPUFXTNBXsGQxJZJq7Ix7j4RXMYodP3s+OsqCErg==
+  dependencies:
+    gsap "*"
 
 "@types/json-schema@^7.0.15":
   version "7.0.15"
@@ -1516,7 +1528,7 @@ graphemer@^1.4.0:
   resolved "https://registry.yarnpkg.com/graphemer/-/graphemer-1.4.0.tgz#fb2f1d55e0e3a1849aeffc90c4fa0dd53a0e66c6"
   integrity sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==
 
-gsap@^3.12.7:
+gsap@*, gsap@^3.12.7:
   version "3.12.7"
   resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.12.7.tgz#1b690def901ac9b21d4909f39c2b52418154463d"
   integrity sha512-V4GsyVamhmKefvcAKaoy0h6si0xX7ogwBoBSs2CTJwt7luW0oZzC0LhdkyuKV8PJAXr7Yaj8pMjCKD4GJ+eEMg==

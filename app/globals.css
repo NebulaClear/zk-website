@@ -65,3 +65,14 @@ body {
 .h-700{
   height: 700px;
 }
+
+.animate-in-progress {
+  * {
+    transition: none !important;
+  }
+}
+
+.school-card {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
