@@ -8,8 +8,16 @@ import "swiper/css";
 import "swiper/css/pagination";
 // import type { CarouselProps } from "@/types"
 export type PlaceholderValue = "blur" | "empty" | `data:image/${string}`;
+interface ICImage {
+  src:string,
+  alt:string,
+  title:string,
+  info:string,
+  button_l?:string,
+  button_r?:string
+}
 interface ICarousel {
-  images: [];
+  images: ICImage[];
   autoplay?: {
     delay: number;
   };

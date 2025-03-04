@@ -62,7 +62,7 @@ export default function SchoolListing() {
     })
 
     // 初始化卡片动画
-    gsap.utils.toArray<HTMLElement>(".school-card").forEach((item, i) => {
+    gsap.utils.toArray<HTMLElement>(".school-card").forEach((item) => {
       gsap.from(item, {
         opacity: 0,
         y: 50,

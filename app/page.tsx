@@ -4,6 +4,14 @@ import ZkCarousel from "@/components/ZkCarousel"
 import ZkServive from "@/components/ZkServive"
 import ZkSchool from "@/components/ZkSchool"
 export default function Home() {
+  interface ICImage {
+    src:string,
+    alt:string,
+    title:string,
+    info:string,
+    button_l?:string,
+    button_r?:string
+  }
   const navList = [
     {
       name: "首页",
@@ -31,7 +39,7 @@ export default function Home() {
       id: "nav-5",
     }
   ];
-  const images = [
+  const images:ICImage[] = [
     {
       src:'/image/swipe/swipe1.jpg',
       alt:'零中介费留学申请平台',
@@ -58,35 +66,82 @@ export default function Home() {
     <>
       <div>
         <nav className="fixed top-0 w-full bg-white shadow-md z-50 pt-2 pb-2">
-          <div className="flex items-center justify-between ">
-            <div className="flex items-center pl-40 ">
-              <div className="rounded-full overflow-hidden">
-                <Image
-                  className=""
-                  src="/image/logo.png"
-                  alt="早稻田留学"
-                  width={50}
-                  height={50}
-                  priority
-                />
-              </div>
-              <p className="pl-5 text-2xl font-bold text-primary hover:cursor-default">
-                早稻田留学
-              </p>
+        <div className="relative">
+      <nav className="fixed top-0 w-full bg-white shadow-md z-50 pt-2 pb-2">
+        <div className="flex items-center justify-between px-4 md:px-40">
+          {/* Logo部分 */}
+          <div className="flex items-center">
+            <div className="rounded-full overflow-hidden w-10 h-10 md:w-12 md:h-12">
+              <Image
+                src="/image/logo.png"
+                alt="早稻田留学"
+                width={50}
+                height={50}
+                className="w-full h-full object-cover"
+                priority
+              />
             </div>
-            <ul className="flex pr-40">
-              {navList.map((li) => {
-                return (
-                  <li
-                    key={li.id}
-                    className="pr-5 hover:cursor-pointer hover:text-primary hover:scale-110 transition-all"
-                  >
-                    {li.name}
-                  </li>
-                );
-              })}
-            </ul>
+            <p className="pl-3 md:pl-5 text-xl md:text-2xl font-bold text-primary">
+              早稻田留学
+            </p>
           </div>
+
+          {/* 隐藏的checkbox */}
+          <input 
+            type="checkbox" 
+            id="menu-toggle" 
+            className="hidden peer" 
+            hidden 
+          />
+
+          {/* 桌面导航 */}
+          <ul className="hidden md:flex space-x-4 lg:space-x-6">
+            {navList.map((li) => (
+              <li
+                key={li.id}
+                className="hover:text-primary transition-colors duration-200 text-sm lg:text-base"
+              >
+                {li.name}
+              </li>
+            ))}
+          </ul>
+
+          {/* 移动端汉堡菜单按钮 */}
+          <label 
+            htmlFor="menu-toggle"
+            className="md:hidden p-2 cursor-pointer hover:text-primary transition-colors"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </label>
+        </div>
+
+        {/* 移动端下拉菜单 */}
+        <div className="hidden peer-checked:block md:hidden absolute top-full w-full bg-white shadow-lg">
+          <ul className="py-4">
+            {navList.map((li) => (
+              <li
+                key={li.id}
+                className="px-6 py-3 hover:bg-gray-100 transition-colors"
+              >
+                {li.name}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </nav>
+    </div>
         </nav>
         <main className="w-full">
           {/* 轮播图 */}
