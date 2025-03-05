@@ -1,27 +1,23 @@
-version: '3.8'
-
 services:
-  nextjs-app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      args:
-        - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}  # 可传递构建参数
-    container_name: nextjs-container
-    restart: unless-stopped
-    ports:
-      - "3000:3000"
-    environment:
-      - NODE_ENV=production
-      - NEXT_TELEMETRY_DISABLED=1
-      - TZ=Asia/Shanghai
-      - PORT=3000
+  nextjs:
+    image: zk-website  
     volumes:
-      - ./:/app  # 开发环境下代码热更新
-      - ./.next:/app/.next  # 生产环境下复用构建缓存
+      - ./out:/app/.next/static         
     networks:
-      - app-network
+      - nextjs-net            
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./out:/usr/share/nginx/html/_next/static 
+    networks:
+      - nextjs-net             
+    depends_on:
+      - nextjs       # 服务名，在nginx.conf中能用到          
 
 networks:
-  app-network:
+  nextjs-net:                  
+    name: nextjs-net      
     driver: bridge
