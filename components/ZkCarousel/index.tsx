@@ -72,7 +72,7 @@ const ZkCarousel = ({ images, autoplay = { delay: 3000 } }: ICarousel) => {
         ) => (
           <SwiperSlide key={src + index} className="w-full">
             <div
-              className="relative h-700 w-full"
+              className="relative h-screen w-full"
               style={{
                 backgroundImage: `url('${src}')`,
                 backgroundRepeat: "no-repeat",
@@ -89,10 +89,10 @@ const ZkCarousel = ({ images, autoplay = { delay: 3000 } }: ICarousel) => {
                       {info}
                     </p>
                     <div className="flex space-x-4">
-                      {button_l&&<button className="!rounded-button bg-[#87CEEB] text-white px-8 py-3 text-lg hover:bg-opacity-90">
+                      {button_l&&<button className="!rounded-button bg-primary text-white px-8 py-3 text-lg hover:bg-opacity-90">
                         {button_l}
                       </button>}
-                      {button_r&&<button className="!rounded-button border-2 border-[#87CEEB] bg-gray-50 text-[#87CEEB] px-8 py-3 text-lg hover:bg-[#87CEEB] hover:text-white">
+                      {button_r&&<button className="!rounded-button border-2 border-primary/70 bg-gray-50 text-primary px-8 py-3 text-lg hover:bg-primary/70 hover:text-white">
                         {button_r}
                       </button>}
                     </div>

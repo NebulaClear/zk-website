@@ -107,7 +107,7 @@ export default function ServicesSection() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="service-item cursor-pointer group relative p-8 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border-l-4 border-orange-500"
+              className="service-item cursor-pointer group relative p-8 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border-l-4 border-primary/50 hover:border-primary"
             >
               <h3 className="text-xl font-semibold mb-4 text-gray-800">
                 {service.title}
