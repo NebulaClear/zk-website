@@ -61,29 +61,19 @@ export default function FullScreenJukuPage() {
       <div className="parallax-layer absolute inset-0 bg-gradient-to-br from-primary to-second">
         <div className="absolute inset-0 opacity-20">
           <div className="flex gap-8 animate-scroll-horizontal">
-            {/* {[1,2,3,4].map(i => (
-              <Image
-                key={i}
-                src={`/jp-campus-${i}.jpg`}
-                width={400}
-                height={600}
-                alt="校园背景"
-                className="w-64 h-[40vh] md:h-[60vh] object-cover rounded-2xl grayscale"
-              />
-            ))} */}
           </div>
         </div>
       </div>
 
       {/* 主内容层 */}
-      <div className="parallax-layer relative h-screen flex items-center justify-center p-4 md:p-8">
+      <div className="parallax-layer relative h-screen flex items-center justify-center p-4 md:p-8 ">
         <div className="w-full max-w-6xl mx-auto">
           {/* 动态标题 */}
           <h1 
             ref={titleRef}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold text-center mb-8 md:mb-16 px-4"
+            className="text-4xl md:text-6xl lg:text-7xl font-bold text-center md:mb-16 px-4"
           >
-            <span className="bg-gradient-to-r from-blue-400 to-purple-300 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-400 to-purple-300 bg-clip-text text-transparent mt-10">
               早稻田精英私塾
             </span>
             <span className="block md:inline-block md:ml-6 text-2xl md:text-4xl text-gray-200 mt-4 md:mt-0">
