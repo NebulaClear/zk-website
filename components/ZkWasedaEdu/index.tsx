@@ -1,31 +1,30 @@
 // app/page.tsx
-'use client'
-import { useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-// import Image from 'next/image'
+"use client";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 export default function FullScreenJukuPage() {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const titleRef = useRef<HTMLHeadingElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
   const cardsRef = useRef<Array<HTMLDivElement>>([]);
 
   useEffect(() => {
     // 全屏视差系统
     gsap.utils.toArray(".parallax-layer").forEach((layer: any, i) => {
       gsap.to(layer, {
-        yPercent: i * -15,
+        yPercent: i * (window.innerHeight < 700 ? -10 : -15),
         ease: "none",
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
           end: "+=500%",
-          scrub: true
-        }
-      })
-    })
+          scrub: true,
+        },
+      });
+    });
 
     // 标题动画
     gsap.from(titleRef.current, {
@@ -35,9 +34,9 @@ export default function FullScreenJukuPage() {
       ease: "power4.out",
       scrollTrigger: {
         trigger: titleRef.current,
-        start: "top 90%"
-      }
-    })
+        start: "top 90%",
+      },
+    });
 
     // 卡片入场动画
     cardsRef.current.forEach((card, index) => {
@@ -49,27 +48,41 @@ export default function FullScreenJukuPage() {
         scrollTrigger: {
           trigger: card,
           start: "top 85%",
-          toggleActions: "play none none none"
-        }
-      })
-    })
-  }, [])
+          toggleActions: "play none none none",
+        },
+      });
+    });
+    // 创建时间轴
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top 80%",
+      },
+    });
+
+    tl.from(cardsRef.current, {
+      x: (i) => (i % 2 === 0 ? 60 : -60),
+      opacity: 0,
+      stagger: 0.15, // 间隔150ms
+      duration: 0.7,
+      ease: "power2.out",
+    });
+  }, []);
 
   return (
     <div ref={containerRef} className="min-h-full relative overflow-hidden">
       {/* 全屏背景层 */}
       <div className="parallax-layer absolute inset-0 bg-gradient-to-br from-primary to-second">
         <div className="absolute inset-0 opacity-20">
-          <div className="flex gap-8 animate-scroll-horizontal">
-          </div>
+          <div className="flex gap-8 animate-scroll-horizontal"></div>
         </div>
       </div>
 
       {/* 主内容层 */}
-      <div className="parallax-layer relative h-screen flex items-center justify-center p-4 md:p-8 ">
+      <div className="parallax-layer relative min-h-[100dvh] flex items-center justify-center p-4 md:p-8 ">
         <div className="w-full max-w-6xl mx-auto">
           {/* 动态标题 */}
-          <h1 
+          <h1
             ref={titleRef}
             className="text-4xl md:text-6xl lg:text-7xl font-bold text-center md:mb-16 px-4"
           >
@@ -84,21 +97,21 @@ export default function FullScreenJukuPage() {
           {/* 全屏卡片布局 */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {[
-              { 
-                title: 'EJU考试专项辅导',
-                icon: '📚',
-                color: 'from-blue-500 to-cyan-500'
+              {
+                title: "EJU考试专项辅导",
+                icon: "📚",
+                color: "from-blue-500 to-cyan-500",
               },
               {
-                title: '校内考试重点突破',
-                icon: '🎯',
-                color: 'from-purple-500 to-pink-500'
+                title: "校内考试重点突破",
+                icon: "🎯",
+                color: "from-purple-500 to-pink-500",
               },
               {
-                title: 'SGU英语项目培训',
-                icon: '🌐',
-                color: 'from-emerald-500 to-teal-500'
-              }
+                title: "SGU英语项目培训",
+                icon: "🌐",
+                color: "from-emerald-500 to-teal-500",
+              },
             ].map((service, index) => (
               <div
                 key={service.title}
@@ -114,14 +127,16 @@ export default function FullScreenJukuPage() {
                   <span className="text-5xl md:text-6xl mb-6 transition-transform group-hover:rotate-[20deg]">
                     {service.icon}
                   </span>
-                  
+
                   {/* 渐变装饰线 */}
-                  <div className={`w-full h-1 bg-gradient-to-r ${service.color} mb-6 rounded-full`} />
+                  <div
+                    className={`w-full h-1 bg-gradient-to-r ${service.color} mb-6 rounded-full`}
+                  />
 
                   <h2 className="text-xl md:text-2xl font-bold text-white mb-4">
                     {service.title}
                   </h2>
-                  
+
                   {/* 悬浮箭头 */}
                   <svg
                     className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all"
@@ -129,7 +144,12 @@ export default function FullScreenJukuPage() {
                     stroke="currentColor"
                     viewBox="0 0 24 24"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
                   </svg>
                 </div>
               </div>
@@ -138,5 +158,5 @@ export default function FullScreenJukuPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }

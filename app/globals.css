@@ -85,3 +85,19 @@ body {
 .float-element {
   animation: float 6s ease-in-out infinite;
 }
+.service-card {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* 在全局CSS中添加 */
+@media (max-height: 600px) and (orientation: portrait) {
+  .parallax-layer {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  h1 {
+    font-size: 2.5rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+}
