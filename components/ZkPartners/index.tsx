@@ -121,7 +121,7 @@ export default function PartnerUniversities({}) {
   );
 
   return (
-    <section className="partner-section min-h-screen bg-gradient-to-b from-slate-50 to-blue-50 py-20 px-4 md:px-8">
+    <section className="partner-section min-h-fit bg-gradient-to-b from-slate-50 to-blue-50 py-20 px-4 md:px-8">
       {/* 标题模块 */}
       <h2 className="section-title text-3xl md:text-4xl font-bold text-center mb-12">
         合作院校
@@ -183,7 +183,7 @@ export default function PartnerUniversities({}) {
 }
 
 const UniversityCard = ({ logo, name, location, description,qs }:{logo:string, name:string, location:string, description:string,qs:string }) => (
-  <div className="university-card h-full flex flex-col min-w-[280px]">
+  <div className="university-card flex flex-col min-w-[280px]">
     {" "}
     {/* 新增外层高度控制 */}
     <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 flex-1 flex flex-col">
