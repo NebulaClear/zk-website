@@ -1,4 +1,3 @@
-// app/page.tsx
 "use client";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
@@ -38,12 +37,12 @@ export default function FullScreenJukuPage() {
       },
     });
 
-    // 卡片入场动画
+    // 统一卡片入场动画（移除冲突的时间轴动画）
     cardsRef.current.forEach((card, index) => {
       gsap.from(card, {
-        x: index % 2 === 0 ? 100 : -100,
+        x: index % 2 === 0 ? 60 : -60,
         opacity: 0,
-        rotate: index % 2 === 0 ? 10 : -10,
+        rotate: index % 2 === 0 ? 5 : -5,
         duration: 0.8,
         scrollTrigger: {
           trigger: card,
@@ -51,21 +50,6 @@ export default function FullScreenJukuPage() {
           toggleActions: "play none none none",
         },
       });
-    });
-    // 创建时间轴
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top 80%",
-      },
-    });
-
-    tl.from(cardsRef.current, {
-      x: (i) => (i % 2 === 0 ? 60 : -60),
-      opacity: 0,
-      stagger: 0.15, // 间隔150ms
-      duration: 0.7,
-      ease: "power2.out",
     });
   }, []);
 
@@ -79,12 +63,13 @@ export default function FullScreenJukuPage() {
       </div>
 
       {/* 主内容层 */}
-      <div className="parallax-layer relative min-h-[100dvh] flex items-center justify-center p-4 md:p-8 ">
-        <div className="w-full max-w-6xl mx-auto">
+      <div className="parallax-layer relative min-h-[100dvh] flex items-center justify-center p-4 md:p-8">
+        {/* 增加宽度限制确保三列布局 */}
+        <div className="w-full max-w-7xl mx-auto px-4"> {/* 调整容器宽度 */}
           {/* 动态标题 */}
           <h1
             ref={titleRef}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold text-center md:mb-16 px-4"
+            className="text-4xl md:text-6xl lg:text-7xl font-bold text-center md:mb-16"
           >
             <span className="bg-gradient-to-r from-blue-400 to-purple-300 bg-clip-text text-transparent mt-10">
               早稻田精英私塾
@@ -94,8 +79,8 @@ export default function FullScreenJukuPage() {
             </span>
           </h1>
 
-          {/* 全屏卡片布局 */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          {/* 优化卡片容器布局 */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 w-full">
             {[
               {
                 title: "EJU考试专项辅导",
@@ -116,28 +101,20 @@ export default function FullScreenJukuPage() {
               <div
                 key={service.title}
                 ref={(el: HTMLDivElement | null) => {
-                  if (el) {
-                    cardsRef.current[index] = el;
-                  }
+                  if (el) cardsRef.current[index] = el;
                 }}
                 className="service-card cursor-pointer group relative p-6 md:p-8 rounded-3xl backdrop-blur-xl bg-white/10 border border-white/20 hover:bg-white/20 transition-all duration-300"
               >
                 <div className="flex flex-col items-center text-center">
-                  {/* 动态图标 */}
                   <span className="text-5xl md:text-6xl mb-6 transition-transform group-hover:rotate-[20deg]">
                     {service.icon}
                   </span>
-
-                  {/* 渐变装饰线 */}
                   <div
                     className={`w-full h-1 bg-gradient-to-r ${service.color} mb-6 rounded-full`}
                   />
-
                   <h2 className="text-xl md:text-2xl font-bold text-white mb-4">
                     {service.title}
                   </h2>
-
-                  {/* 悬浮箭头 */}
                   <svg
                     className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all"
                     fill="none"

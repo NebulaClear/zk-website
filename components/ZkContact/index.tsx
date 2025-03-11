@@ -3,11 +3,17 @@ import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { createClient } from '@vercel/kv';
 
 export default function ContactSection() {
   const contactContainerRef = useRef<HTMLElement>(null);
   const formRef = useRef<HTMLDivElement>(null);
-
+  // const kv = createClient({
+   
+  // });
+  const post = async () =>{
+    // await kv.set('key', 'value', { ttl: 3600 });
+  }
   useGSAP(
     () => {
       // 表单元素动画（网页4互动元素）
@@ -100,7 +106,7 @@ export default function ContactSection() {
               className="form-element relative overflow-hidden group w-full max-w-xs py-5 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 rounded-xl text-white font-semibold text-lg"
               onClick={() => {
                 // 这里可以添加点击事件处理（网页2交互逻辑）
-                console.log("联系按钮点击");
+                post()
               }}
             >
               立即咨询
