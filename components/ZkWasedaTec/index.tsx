@@ -1,20 +1,22 @@
-// src/app/page.tsx
 'use client';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react'; // 引入官方 React 集成
 import Image from 'next/image';
 
-// 注册GSAP插件
-gsap.registerPlugin(ScrollTrigger);
+// 统一注册插件（建议在组件外注册）
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function ZkWaseda() {
   const leftRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const itemsRef = useRef<HTMLDivElement[]>([]);
   const containerRef = useRef<HTMLDivElement | null>(null);
-  useEffect(() => {
-    // 左侧图片动画
+
+  // 使用 useGSAP 替代 useEffect（自动处理动画生命周期）[5](@ref)
+  useGSAP(() => {
+    // 左侧图片动画（带作用域隔离）
     gsap.from(leftRef.current, {
       x: -100,
       opacity: 0,
@@ -28,7 +30,7 @@ export default function ZkWaseda() {
       }
     });
 
-    // 标题动画
+    // 标题动画（自动回收资源）
     gsap.from(titleRef.current, {
       y: 50,
       opacity: 0,
@@ -41,7 +43,7 @@ export default function ZkWaseda() {
       }
     });
 
-    // 列表项动画
+    // 列表项动画（优化批量处理）[1,5](@ref)
     itemsRef.current.forEach((item, index) => {
       gsap.from(item, {
         y: 40,
@@ -52,14 +54,13 @@ export default function ZkWaseda() {
           trigger: item,
           start: "top 90%",
           end: "top 60%",
-          toggleActions: "play none none none",
-          markers: false // 调试时可设为true
+          toggleActions: "play none none none"
         },
         delay: index * 0.1
       });
     });
 
-    // 容器整体动画
+    // 容器整体动画（作用域关联）
     gsap.from(containerRef.current, {
       autoAlpha: 0,
       y: 50,
@@ -71,11 +72,7 @@ export default function ZkWaseda() {
         scrub: 1
       }
     });
-
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
-  }, []);
+  }, { scope: containerRef }); // 关键：限定动画作用域自动清理[5](@ref)
 
   const projects = [
     "与北京大学双学位项目合作",

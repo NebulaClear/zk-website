@@ -81,7 +81,7 @@ const ZkCarousel = ({ images, autoplay = { delay: 3000 } }: ICarousel) => {
             >
               <div className="absolute w-full inset-0 bg-gradient-to-r from-white via-white/10 to-transparent">
                 <div className="max-w-7xl mx-auto px-4 h-full flex items-center">
-                  <div className="max-w-2xl">
+                  <div className="max-w-4xl">
                     <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
                       {title}
                     </h1>

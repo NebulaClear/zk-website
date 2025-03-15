@@ -4,11 +4,13 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import Link from 'next/link'
 
 // 服务项类型定义
 interface ServiceItem {
   title: string;
   description: string;
+  route?:string;
 }
 
 export default function ServicesSection() {
@@ -18,18 +20,20 @@ export default function ServicesSection() {
     {
       title: "选校规划",
       description: "基于学生个人情况，为其量身定制最优选校方案",
+      route:'/planning'
     },
     {
       title: "签证办理",
       description: "一站式签证服务，确保顺利获得学生签证",
+      route:'/visa'
     },
     {
-      title: "国际课程",
-      description: "OSSD加拿大离岸教育，SAT美国高考，EJU日本留学考试",
+      title: "日本留学课程",
+      description: "日语+EJU日本留学考试+雅思",
     },
     {
       title: "语言培训",
-      description: "专业语言培训课程，提升语言应试能力",
+      description: "日语+英语",
     },
     {
       title: "面试辅导",
@@ -105,8 +109,9 @@ export default function ServicesSection() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {services.map((service, index) => (
-            <div
+            <Link
               key={index}
+              href={"/service"+service.route}
               className="service-item cursor-pointer group relative p-8 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border-l-4 border-primary/50 hover:border-primary"
             >
               <h3 className="text-xl font-semibold mb-4 text-gray-800">
@@ -115,7 +120,7 @@ export default function ServicesSection() {
               <p className="text-gray-600 leading-relaxed">
                 {service.description}
               </p>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

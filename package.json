@@ -17,6 +17,7 @@
     "classnames": "^2.5.1",
     "gsap": "^3.12.7",
     "next": "15.1.7",
+    "perf-monitor": "^0.6.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "swiper": "^11.2.4"

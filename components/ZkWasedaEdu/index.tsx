@@ -1,31 +1,33 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function FullScreenJukuPage() {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const EduContainerRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const cardsRef = useRef<Array<HTMLDivElement>>([]);
 
-  useEffect(() => {
-    // 全屏视差系统
+  // 使用 useGSAP 替代 useEffect 管理动画生命周期
+  useGSAP(() => {
+    // 视差背景系统（作用域限定在 containerRef）
     gsap.utils.toArray(".parallax-layer").forEach((layer: any, i) => {
       gsap.to(layer, {
         yPercent: i * (window.innerHeight < 700 ? -10 : -15),
         ease: "none",
         scrollTrigger: {
-          trigger: containerRef.current,
+          trigger: EduContainerRef.current,
           start: "top top",
           end: "+=500%",
-          scrub: true,
-        },
+          scrub: true
+        }
       });
     });
 
-    // 标题动画
+    // 标题入场动画（带作用域自动清理）
     gsap.from(titleRef.current, {
       scale: 0.8,
       opacity: 0,
@@ -34,10 +36,11 @@ export default function FullScreenJukuPage() {
       scrollTrigger: {
         trigger: titleRef.current,
         start: "top 90%",
-      },
+        toggleActions: "play none none none"
+      }
     });
 
-    // 统一卡片入场动画（移除冲突的时间轴动画）
+    // 卡片入场动画（自动收集动画实例）
     cardsRef.current.forEach((card, index) => {
       gsap.from(card, {
         x: index % 2 === 0 ? 60 : -60,
@@ -47,14 +50,14 @@ export default function FullScreenJukuPage() {
         scrollTrigger: {
           trigger: card,
           start: "top 85%",
-          toggleActions: "play none none none",
-        },
+          toggleActions: "play none none none"
+        }
       });
     });
-  }, []);
+  }, { scope: EduContainerRef }); // 关键：限定动画作用域
 
   return (
-    <div ref={containerRef} className="min-h-full relative overflow-hidden">
+    <div ref={EduContainerRef} className="min-h-full relative overflow-hidden">
       {/* 全屏背景层 */}
       <div className="parallax-layer absolute inset-0 bg-gradient-to-br from-primary to-second">
         <div className="absolute inset-0 opacity-20">
