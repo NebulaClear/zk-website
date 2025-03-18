@@ -1,12 +1,12 @@
 import Image from "next/image";
 
-import ZkCarousel from "@/components/ZkCarousel";
-import ZkServive from "@/components/ZkServive";
-import ZkWasedaTec from "@/components/ZkWasedaTec";
-import ZkWasedaEdu from "@/components/ZkWasedaEdu";
-import ZkPartners from "@/components/ZkPartners";
-import ZkStudnets from "@/components/ZkStudnets";
-import ZkContact from "@/components/ZkContact";
+import ZkCarousel from "@/components/Home/ZkCarousel";
+import ZkServive from "@/components/Home/ZkServive";
+import ZkWasedaTec from "@/components/Home/ZkWasedaTec";
+import ZkWasedaEdu from "@/components/Home/ZkWasedaEdu";
+import ZkPartners from "@/components/Home/ZkPartners";
+import ZkStudnets from "@/components/Home/ZkStudnets";
+import ZkContact from "@/components/Home/ZkContact";
 // import ZkSchool from "@/components/ZkSchool"
 export default function Home() {
   interface ICImage {
@@ -28,13 +28,13 @@ export default function Home() {
       button_r: "了解更多",
     },
     {
-      src: "/image/swipe/swipe2.jpg",
+      src: "/image/swipe/swipe2.png",
       alt: "专业团队，精准规划，留学之路更轻松！",
       title: "专业团队，精准规划，留学之路更轻松！",
       info: "深耕留学培训多年，成功帮助数千学子圆梦海外！",
     },
     {
-      src: "/image/swipe/swipe3.jpg",
+      src: "/image/swipe/swiper3.png",
       alt: "精准规划，成就留学梦想！",
       title: "专业的留学规划指导",
       info: "专业团队量身定制留学方案，助你轻松踏入理想学府！",

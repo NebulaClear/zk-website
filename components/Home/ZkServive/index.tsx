@@ -112,6 +112,7 @@ export default function ServicesSection() {
             <Link
               key={index}
               href={"/service"+service.route}
+              scroll={true}
               className="service-item cursor-pointer group relative p-8 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border-l-4 border-primary/50 hover:border-primary"
             >
               <h3 className="text-xl font-semibold mb-4 text-gray-800">

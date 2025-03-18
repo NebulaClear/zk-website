@@ -96,7 +96,7 @@ export default function FullScreenJukuPage() {
                 color: "from-purple-500 to-pink-500",
               },
               {
-                title: "SGU英语项目培训",
+                title: "雅思项目培训",
                 icon: "🌐",
                 color: "from-emerald-500 to-teal-500",
               },
