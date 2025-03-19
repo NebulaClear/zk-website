@@ -30,6 +30,7 @@ export default function ServicesSection() {
     {
       title: "日本留学课程",
       description: "日语+EJU日本留学考试+雅思",
+      route:'/course'
     },
     {
       title: "语言培训",
