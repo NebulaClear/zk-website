@@ -156,7 +156,7 @@ export default function VisaPage() {
                     </div>
                   </div>
                   <div className="hidden md:block md:w-1/2">
-                    <div className={`h-48 bg-gradient-to-${i%2 ? 'l' : 'r'} from-purple-100/50 to-transparent`}></div>
+                    {/* <div className={`h-48 bg-gradient-to-${i%2 ? 'l' : 'r'} from-purple-100/50 to-transparent`}></div> */}
                   </div>
                 </div>
               ))}
