@@ -19,7 +19,7 @@ class KVClient {
   private metrics: KVPerfMetrics;
 
   constructor() {
-    this.validateEnv();
+    // this.validateEnv();
     this.maxRetries = Number(process.env.KV_MAX_RETRIES) || 3;
     this.keyPrefix = process.env.KV_KEY_PREFIX || "prod_";
     this.iv = crypto.randomBytes(16);
@@ -32,13 +32,13 @@ class KVClient {
     throw new Error("未配置加密密钥");
   }
 
-  // 增强环境验证
-  private validateEnv() {
-    const missing = [];
-    if (!process.env.KV_REST_API_URL) missing.push("KV_REST_API_URL");
-    if (!process.env.KV_REST_API_TOKEN) missing.push("KV_REST_API_TOKEN");
-    if (missing.length) throw new Error(`缺失环境变量: ${missing.join(", ")}`);
-  }
+  // // 增强环境验证
+  // private validateEnv() {
+  //   const missing = [];
+  //   if (!process.env.KV_REST_API_URL) missing.push("KV_REST_API_URL");
+  //   if (!process.env.KV_REST_API_TOKEN) missing.push("KV_REST_API_TOKEN");
+  //   if (missing.length) throw new Error(`缺失环境变量: ${missing.join(", ")}`);
+  // }
 
   // 新增连接池管理
   private getClient(): VercelKV {
