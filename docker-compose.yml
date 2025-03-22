@@ -2,28 +2,27 @@ services:
   nextjs:
     image: zk-website
     volumes:
-      - ./out:/app/.next/static
+      - /app/.next/static:/usr/share/nginx/html/_next/static
+      # - /app/.next/static:/app/.next/static
     networks:
       - nextjs-net
+    ports:
+      - "3000:3000" # 端口映射（对应 -p 参数，网页3、网页9）
+    restart: unless-stopped # 后台运行策略（默认行为，参考网页5）
 
   nginx:
     image: nginx:alpine
     ports:
       - "80:80"
     volumes:
-      - ./out:/usr/share/nginx/html/_next/static
+      - /app/.next/static:/usr/share/nginx/html/_next/static
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - /dev/null:/etc/nginx/conf.d/default.conf
     networks:
       - nextjs-net
     depends_on:
       - nextjs # 服务名，在nginx.conf中能用到          
-  zk-website1:
-    image: zk-website # 镜像名称（与原始命令一致）
-    container_name: zk-website1 # 容器名称（对应 --name 参数，参考网页8）
-    ports:
-      - "3000:3000" # 端口映射（对应 -p 参数，网页3、网页9）
-    networks:
-      - nextjs-net # 自定义网络（对应 --network 参数，需提前定义）
-    restart: unless-stopped # 后台运行策略（默认行为，参考网页5）
+
 
 networks:
   nextjs-net:
