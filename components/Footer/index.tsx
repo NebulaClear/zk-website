@@ -6,19 +6,22 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Footer() {
-  useGSAP(() => {
-    gsap.from(".footer-section", {
-      opacity: 0,
-      y: 50,
-      duration: 1,
-      stagger: 0.2,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: "footer",
-        start: "top 80%",
-      }
-    });
-  });
+  // useGSAP(() => {
+  //   gsap.from(".footer-section", {
+  //     opacity: 0,
+  //     y: 50,
+  //     duration: 1,
+  //     stagger: 0.2,
+  //     ease: "power3.out",
+  //     scrollTrigger: {
+  //       trigger: ".footer-section",
+  //       start: "top bottom-=150", // 更保守的触发位置
+  //       end: "bottom center",
+  //       toggleActions: "play none none none", // 确保只播放一次[5](@ref)
+  //       invalidateOnRefresh: true // 路由变化时自动刷新[3](@ref)
+  //     }
+  //   });
+  // }, []);
 
   return (
     <footer className="bg-gray-900 text-gray-50 px-4 py-8 md:py-12">

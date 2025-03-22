@@ -35,14 +35,17 @@ export default function ServicesSection() {
     {
       title: "语言培训",
       description: "日语+英语",
+       route:'/language'
     },
     {
       title: "面试辅导",
       description: "模拟面试训练，提升面试成功率",
+       route:'/interview'
     },
     {
       title: "海外生活指导",
       description: "全方位生活指导，助你适应海外生活",
+       route:'/life'
     },
   ];
 
