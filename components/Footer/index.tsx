@@ -2,6 +2,7 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ZkIcon from "@/components/ZkComponents/ZkIcon";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -61,9 +62,9 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-4">关注我们</h3>
             <div className="flex space-x-4">
               {/* 这里放置社交媒体图标 */}
-              <div className="w-8 h-8 bg-gray-700 rounded-full"></div>
-              <div className="w-8 h-8 bg-gray-700 rounded-full"></div>
-              <div className="w-8 h-8 bg-gray-700 rounded-full"></div>
+              <div className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center"><ZkIcon type="zdticon" className="zicon-weibo" /></div>
+              <div className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center"><ZkIcon type="zdticon" className="zicon-bilibili1" /></div>
+              <div className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center"><ZkIcon type="zdticon" className="zicon-douyinzhanghao" /></div>
             </div>
           </div>
         </div>

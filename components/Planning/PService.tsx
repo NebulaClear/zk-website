@@ -4,24 +4,25 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ZkIcon from "@/components/ZkComponents/ZkIcon";
 
 // 注册插件（只需一次）
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const advantages = [
   {
-    icon: "fas fa-user-tie",
+    icon: "zicon-daoshi",
     title: "专业导师团队",
     description:
       "由哈佛、牛津等名校毕业的资深顾问组成，平均拥有8年以上留学咨询经验",
   },
   {
-    icon: "fas fa-chart-line",
+    icon: "zicon-zhuanyekechengfazhanzhongxin",
     title: "个性化规划方案",
     description: "结合学生个人情况，制定专属规划方案，确保申请策略精准有效",
   },
   {
-    icon: "fas fa-shield-alt",
+    icon: "zicon-baozhang",
     title: "成功率保障",
     description: "近三年服务学生TOP30名校录取率达87%，为你的留学梦想保驾护航",
   },
@@ -97,7 +98,7 @@ export default function ServiceAdvantages() {
                 className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6
                 transition-transform hover:scale-105"
               >
-                <i className={`${advantage.icon} text-primary text-2xl`} />
+                <ZkIcon type="zdticon" className={`${advantage.icon} text-primary text-2xl`} />
               </div>
 
               <h3 className="text-xl font-bold mb-4 text-gray-800">

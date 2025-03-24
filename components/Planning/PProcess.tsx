@@ -4,27 +4,28 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useRef } from 'react'
+import ZkIcon from "@/components/ZkComponents/ZkIcon";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger)
 
 const steps = [
   {
-    icon: 'fas fa-clipboard-list',
+    icon: 'zicon-banxuepinggu',
     title: '学生情况评估',
     description: '全面评估学术背景、语言成绩、科研经历'
   },
   {
-    icon: 'fas fa-university',
+    icon: 'zicon-icon-test',
     title: '目标院校筛选',
     description: '基于大数据分析，匹配最适合的院校选择'
   },
   {
-    icon: 'fas fa-graduation-cap',
+    icon: 'zicon-zhuanyekechengfazhanzhongxin',
     title: '专业方向规划',
     description: '结合职业发展规划，选择最优专业方向'
   },
   {
-    icon: 'fas fa-tasks',
+    icon: 'zicon-celve-zhongduancelve',
     title: '申请策略制定',
     description: '制定详细的申请时间表和材料准备计划'
   }
@@ -73,7 +74,7 @@ export default function ProcessFlow() {
               className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all will-change-transform"
             >
               <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <i className={`${step.icon} text-primary text-3xl`} />
+                <ZkIcon type='zdticon' className={`${step.icon} text-primary text-3xl`} />
               </div>
               <h3 className="text-xl font-semibold text-center mb-4">
                 {step.title}

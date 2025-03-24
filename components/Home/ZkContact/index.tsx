@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { createClient } from "@vercel/kv";
 import { KvPOST } from "@/api/kv";
+import ZkIcon from "@/components/ZkComponents/ZkIcon";
 
 export default function ContactSection() {
   const contactContainerRef = useRef<HTMLElement>(null);
@@ -88,9 +89,9 @@ export default function ContactSection() {
                   key={link.name}
                   href={link.url}
                   target="_blank"
-                  className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                  className="w-12 h-12 p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center"
                 >
-                  <link.icon className="w-6 h-6" />
+                  <ZkIcon type="zdticon" className="zicon-weibo text-2xl" />
                 </a>
               ))}
             </div>
