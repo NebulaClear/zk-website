@@ -30,15 +30,22 @@ export default {
         }
       },
       boxShadow: {
-        'card': '0 8px 30px -15px rgba(0,0,0,0.1)'
+        'card': '0 8px 30px -15px rgba(0,0,0,0.1)',
+        'card-hover': '0 12px 32px rgba(0, 0, 0, 0.15)',
+        'button': '0 4px 12px rgba(26, 119, 232, 0.3)'
       },
       animation: {
-        'fade-in-up': 'fadeInUp 0.6s ease-out'
+        'fade-in-up': 'fadeInUp 0.6s ease-out',
+        'card-enter': 'cardEnter 0.6s ease-out',
       },
       keyframes: {
         fadeInUp: {
           '0%': { opacity: "0", transform: 'translateY(20px)' },
           '100%': { opacity: "1", transform: 'translateY(0)' }
+        },
+        cardEnter: {
+          '0%': { opacity: "0", transform: 'translateY(30px) scale(0.95)' },
+          '100%': { opacity: "1", transform: 'translateY(0) scale(1)' }
         }
       }
     },
