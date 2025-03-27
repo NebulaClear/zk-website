@@ -24,26 +24,31 @@ const navList = [
     name: "首页",
     pageName: "",
     id: "nav-1",
+    router:'/'
   },
   {
     name: "合作院校",
     pageName: "",
     id: "nav-2",
+    router:'/'
   },
   {
     name: "服务项目",
     pageName: "",
     id: "nav-3",
+    router:'/'
   },
   {
     name: "毕业学员",
     pageName: "",
     id: "nav-4",
+    router:'/'
   },
   {
     name: "联系我们",
     pageName: "",
     id: "nav-5",
+    router:'/contact'
   },
 ];
 export default function RootLayout({
@@ -107,7 +112,7 @@ export default function RootLayout({
               <ul className="hidden md:flex space-x-4 lg:space-x-6 items-center">
                 {navList.map((li) => (
                   <Link
-                    href={"/"}
+                    href={li.router}
                     key={li.id}
                     className={
                       li.id === "nav-5"

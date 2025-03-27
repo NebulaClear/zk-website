@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -101,6 +102,7 @@ export default function FullScreenJukuPage() {
                 color: "from-emerald-500 to-teal-500",
               },
             ].map((service, index) => (
+              <Link key={service.title} href="/wedu">
               <div
                 key={service.title}
                 ref={(el: HTMLDivElement | null) => {
@@ -133,6 +135,7 @@ export default function FullScreenJukuPage() {
                   </svg>
                 </div>
               </div>
+              </Link>
             ))}
           </div>
         </div>

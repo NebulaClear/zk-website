@@ -1,18 +1,13 @@
-'use client'
+// src/app/page.tsx
+import ContactForm from '@/components/Contact/ContactForm'
 
-import { useRef } from 'react';
-import { useGSAP } from '@gsap/react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 
-const Contact = ()=>{
+export default function Home() {
+  return (
+    <main className="relative pt-[100px]">
+      <ContactForm />
 
-    return (
-        <>
-           <div></div>
-        </>
-    )
+    </main>
+  )
 }
-export default Contact;
+// ContactForm
