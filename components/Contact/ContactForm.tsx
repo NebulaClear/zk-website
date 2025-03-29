@@ -3,11 +3,13 @@
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import ZkNumberCaptcha from '@/components/ZkComponents/ZkNumberCaptcha'
 
 export default function ContactForm() {
   const formRef = useRef<HTMLFormElement>(null);
-
+  const [input, setInput] = useState('');
+  const [captcha, setCaptcha] = useState('');
   // GSAP 动画
   useGSAP(
     () => {
@@ -26,6 +28,11 @@ export default function ContactForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget as HTMLFormElement);
+    if (formData.get("captcha") === captcha) {
+      alert('验证成功');
+    } else {
+      alert('验证码错误');
+    }
     const data = {
       name: formData.get("name"),
       phone: formData.get("phone"),
@@ -89,11 +96,7 @@ export default function ContactForm() {
               />
             </div>
             <div className="mt-7">
-              <img
-                src="/captcha-placeholder.png"
-                alt="验证码"
-                className="h-12 w-32 border rounded-md bg-gray-100"
-              />
+            <ZkNumberCaptcha onCaptchaChange={(code) => setCaptcha(code)} />
             </div>
           </div>
         </div>

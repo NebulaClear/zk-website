@@ -44,7 +44,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>日语课程</li>
               <li>留学申请指导</li>
-              <li>师资力量</li>
+              <li>早稻田大学专栏</li>
             </ul>
           </div>
 
@@ -52,7 +52,7 @@ export default function Footer() {
           <div className="footer-section min-w-[50%] md:min-w-0 md:flex-1">
             <h3 className="text-lg font-semibold mb-4">关于我们</h3>
             <ul className="space-y-2">
-              <li>公司简介</li>
+              <li>合作院校</li>
               <li>服务项目</li>
             </ul>
           </div>

@@ -15,6 +15,8 @@ export default {
   theme: {
     extend: {
       colors: {
+        'gray-100': '#f3f4f6',
+        'gray-700': '#4b5563',
         background: "var(--background)",
         foreground: "var(--foreground)",
         primary:"#8E1728",
@@ -32,7 +34,8 @@ export default {
       boxShadow: {
         'card': '0 8px 30px -15px rgba(0,0,0,0.1)',
         'card-hover': '0 12px 32px rgba(0, 0, 0, 0.15)',
-        'button': '0 4px 12px rgba(26, 119, 232, 0.3)'
+        'button': '0 4px 12px rgba(26, 119, 232, 0.3)',
+        'table': '0 4px 12px rgba(0, 0, 0, 0.05)'
       },
       animation: {
         'fade-in-up': 'fadeInUp 0.6s ease-out',

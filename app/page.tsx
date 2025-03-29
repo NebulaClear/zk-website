@@ -7,7 +7,7 @@ import ZkWasedaEdu from "@/components/Home/ZkWasedaEdu";
 import ZkPartners from "@/components/Home/ZkPartners";
 import ZkStudnets from "@/components/Home/ZkStudnets";
 import ZkContact from "@/components/Home/ZkContact";
-// import ZkSchool from "@/components/ZkSchool"
+
 export default function Home() {
   interface ICImage {
     src: string;
@@ -55,8 +55,6 @@ export default function Home() {
           <ZkCarousel images={images} />
           {/* 我们的服务 */}
           <ZkServive />
-          {/* <h2 className="our-service text-3xl font-bold text-center mb-5 text-gray-800">合作院校</h2>
-          <ZkSchool /> */}
           <ZkWasedaEdu />
           <ZkWasedaTec />
           <ZkPartners />

@@ -35,7 +35,7 @@ export default function ServicesSection() {
     {
       title: "语言培训",
       description: "日语+英语",
-       route:'/language'
+       route:'/course'
     },
     {
       title: "面试辅导",
