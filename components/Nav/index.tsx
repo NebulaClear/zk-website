@@ -14,16 +14,16 @@ export default function Footer() {
           router:'/'
         },
         {
-          name: "合作院校",
-          pageName: "",
-          id: "nav-2",
-          router:'/'
-        },
-        {
           name: "服务项目",
           pageName: "",
           id: "nav-3",
-          router:'/'
+          router:'/list/service'
+        },
+        {
+          name: "合作院校",
+          pageName: "",
+          id: "nav-2",
+          router:'/list/university'
         },
         {
           name: "毕业学员",
@@ -110,6 +110,7 @@ export default function Footer() {
           >
             <ul className="py-4">
               {navList.map((li, index) => (
+                <Link key={li.id} href={li.router}>
                 <li
                   key={li.id}
                   className="px-6 py-3 hover:bg-gray-100 text-center
@@ -122,6 +123,7 @@ export default function Footer() {
                 >
                   {li.name}
                 </li>
+                </Link>
               ))}
             </ul>
           </div>
