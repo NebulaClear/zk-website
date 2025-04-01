@@ -2,10 +2,11 @@
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
+import { useRouter } from 'next/navigation'
 gsap.registerPlugin(ScrollTrigger);
 
 export default function HeroSection() {
+  const router = useRouter()
 //   useGSAP(() => {
 //     // 主内容动画优化
 //     gsap.from(".wefooter-content", {
@@ -66,6 +67,7 @@ export default function HeroSection() {
             className="cta-button bg-white text-black px-6 py-2.5 rounded-full 
               hover:bg-gray-100 font-medium shadow-md
               text-xs md:text-sm inline-block"
+              onClick={()=>router.push('/contact')}
           >
             预约免费咨询
           </button>

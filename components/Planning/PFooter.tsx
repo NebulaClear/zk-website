@@ -4,6 +4,7 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useRef } from "react";
+import { useRouter } from 'next/navigation'
 
 gsap.registerPlugin(useGSAP, ScrollTrigger)
 
@@ -12,6 +13,7 @@ export default function CTASection() {
   const PfooterHeadingRef = useRef<HTMLHeadingElement>(null)
   const PfooterTextRef = useRef<HTMLParagraphElement>(null)
   const PfooterButtonRef = useRef<HTMLButtonElement>(null)
+  const router = useRouter()
 
   useGSAP(() => {
     // 文字渐显动画
@@ -66,6 +68,7 @@ export default function CTASection() {
             className="bg-white text-[#2563EB] px-8 py-4 rounded-lg text-lg 
                      font-bold shadow-lg hover:bg-white/70 hover:shadow-xl transition-all
                      min-w-[240px] md:min-w-[280px]"
+            onClick={()=>router.push('/contact')}
           >
             预约免费咨询
           </button>

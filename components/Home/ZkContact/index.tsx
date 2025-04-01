@@ -6,13 +6,14 @@ import { useGSAP } from "@gsap/react";
 import { createClient } from "@vercel/kv";
 import { KvPOST } from "@/api/kv";
 import ZkIcon from "@/components/ZkComponents/ZkIcon";
+import Link from "next/link";
 
 export default function ContactSection() {
   const contactContainerRef = useRef<HTMLElement>(null);
   const formRef = useRef<HTMLDivElement>(null);
 
   const post = async () => {
-    const name:string = "jimmy1"
+    const name: string = "jimmy1";
     KvPOST({
       key: "jimmy12",
       value: {
@@ -109,16 +110,17 @@ export default function ContactSection() {
             </h3>
 
             {/* 主要联系按钮（网页5 CTA设计） */}
-            <button
-              className="form-element relative overflow-hidden group w-full max-w-xs py-5 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 rounded-xl text-white font-semibold text-lg"
-              onClick={() => {
-                // 这里可以添加点击事件处理（网页2交互逻辑）
-                post();
-              }}
-            >
-              立即咨询
-            </button>
-
+            <Link href={"/contact"} className="form-element relative overflow-hidden group w-full max-w-xs py-5 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 rounded-xl text-white font-semibold text-lg">
+              <button
+                className="form-element relative overflow-hidden group w-full  bg-gradient-to-r text-white font-semibold text-lg"
+                onClick={() => {
+                  // 这里可以添加点击事件处理（网页2交互逻辑）
+                  post();
+                }}
+              >
+                立即咨询
+              </button>
+            </Link>
             {/* 次要联系方式（网页3联系信息） */}
             <div className="form-element flex gap-4 mt-4">
               <a

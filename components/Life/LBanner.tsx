@@ -3,8 +3,7 @@
 import { useLayoutEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import Image from 'next/image'
-import { url } from 'inspector'
+import { useRouter } from 'next/navigation'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -13,7 +12,7 @@ export default function LBanner() {
   const LBHeadingRef = useRef<HTMLHeadingElement>(null)
   const LBtextRef = useRef<HTMLParagraphElement>(null)
   const LBbuttonRef = useRef<HTMLButtonElement>(null)
-
+  const router = useRouter()
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from([LBHeadingRef.current, LBtextRef.current, LBbuttonRef.current], {
@@ -66,6 +65,7 @@ export default function LBanner() {
           <button
             ref={LBbuttonRef}
             className="bg-white text-primary px-8 py-3 rounded-lg text-lg font-medium hover:bg-gray-50 transition-colors"
+            onClick={()=>router.push('/contact')}
           >
             预约免费咨询
           </button>

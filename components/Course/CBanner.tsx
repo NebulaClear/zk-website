@@ -3,8 +3,10 @@ import Image from 'next/image'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useRouter } from 'next/navigation'
 
 export default function CourseSection() {
+  const router = useRouter()
   useGSAP(() => {
     // 为所有动画添加ScrollTrigger
     const tl = gsap.timeline({
@@ -48,7 +50,7 @@ export default function CourseSection() {
           <p className="text-gray-600 text-lg md:text-xl mb-8 md:mb-12">
             全方位打造您的日本留学之路，从语言到考试，为您的留学梦想保驾护航
           </p>
-          <button className="button-animate bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-colors duration-300 transform hover:scale-105">
+          <button onClick={()=>router.push('/contact')} className="button-animate bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-colors duration-300 transform hover:scale-105">
             了解详细课程
           </button>
         </div>

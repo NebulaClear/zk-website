@@ -3,8 +3,7 @@
 import { useLayoutEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import Image from 'next/image'
-import { url } from 'inspector'
+import { useRouter } from 'next/navigation'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -13,7 +12,7 @@ export default function HeroSection() {
   const HeroHeadingRef = useRef<HTMLHeadingElement>(null)
   const HerotextRef = useRef<HTMLParagraphElement>(null)
   const HerobuttonRef = useRef<HTMLButtonElement>(null)
-
+  const router = useRouter()
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from([HeroHeadingRef.current, HerotextRef.current, HerobuttonRef.current], {
@@ -67,6 +66,7 @@ export default function HeroSection() {
           <button
             ref={HerobuttonRef}
             className="bg-white text-primary px-8 py-3 rounded-lg text-lg font-medium hover:bg-gray-50 transition-colors"
+            onClick={()=>router.push('/contact')}
           >
             免费咨询规划方案
           </button>
